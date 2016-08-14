@@ -1,4 +1,5 @@
 package lp.history.permission;
+
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -13,32 +14,44 @@ import java.util.concurrent.Executors;
 
 import lp.history.utils.ToastUtil;
 
-public  class PermissionHelper {
+public class PermissionHelper {
+    private static PermissionHelper permissionHelper;
     /**
-     * 此activity要注意内存泄漏
+     * 此activity要注意内存泄漏 必须调用cancelPermissionActivity()
      */
-   private static  PermissionActivity permissionActivity;
-    private PermissionHelper(){
-    }
-    public static void setPermissionActivity( PermissionActivity activity){
-        PermissionHelper.permissionActivity = activity;
-    }
-    public static void cancelPermissionActivity(){
-        PermissionHelper.permissionActivity = null;
+    private PermissionActivity permissionActivity;
+
+    private PermissionHelper() {
     }
 
-    public static String[] filterPermissions(String[] permissions) {
+    public static PermissionHelper getInstance() {
+        if (permissionHelper == null) {
+            permissionHelper = new PermissionHelper();
+        }
+        return permissionHelper;
+    }
+
+    public void setPermissionActivity(PermissionActivity activity) {
+        this.permissionActivity = activity;
+    }
+
+    public void cancelPermissionActivity() {
+        this.permissionActivity = null;
+        permissionHelper = null;
+    }
+
+    public String[] filterPermissions(String[] permissions) {
         ArrayList<String> list = new ArrayList<>();
         for (String permission : permissions) {
             if (ContextCompat.checkSelfPermission(permissionActivity, permission) != PackageManager.PERMISSION_GRANTED) {
                 list.add(permission);
             }
         }
-        LogUtil.i("has been filter permission:"+list+" "+list.size());
+        LogUtil.i("has been filter permission:" + list + " " + list.size());
         return list.toArray(new String[list.size()]);
     }
 
-    public static void startAppSettings() {
+    public void startAppSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + permissionActivity.getPackageName()));
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -46,10 +59,11 @@ public  class PermissionHelper {
         permissionActivity.startActivity(intent);
     }
 
-    public static boolean isOpenMonitor = true;
-    static boolean isHasMonitorPermission = false;
-    public static void monitorPermission() {
-        if(isHasMonitorPermission){
+    public boolean isOpenMonitor = true;
+    private boolean isHasMonitorPermission = false;
+
+    public void monitorPermission() {
+        if (isHasMonitorPermission) {
             return;
         }
         isHasMonitorPermission = true;
@@ -59,7 +73,7 @@ public  class PermissionHelper {
             public void run() {
                 try {
                     while (isOpenMonitor) {
-                        String[] permissions =permissionActivity.getIntent().getStringArrayExtra("ask_for_permissions");
+                        String[] permissions = permissionActivity.getIntent().getStringArrayExtra("ask_for_permissions");
                         executeMonitor(permissions);
                         Thread.sleep(10 * 1000);
                     }
@@ -71,20 +85,20 @@ public  class PermissionHelper {
     }
 
 
-    public static void executeMonitor(String[] permissionsTask) {
-        if (PermissionHelper.filterPermissions(permissionsTask).length == 0) {
-              onAllPermissionGranted();
+    public void executeMonitor(String[] permissionsTask) {
+        if (filterPermissions(permissionsTask).length == 0) {
+            onAllPermissionGranted();
         } else {//有权限没有获取
             permissionActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    PermissionHelper.startAppSettings();
+                    startAppSettings();
                 }
             });
         }
     }
 
-    public static void onAllPermissionGranted(){
+    public void onAllPermissionGranted() {
         isOpenMonitor = false;
         LogUtil.i("all permissions has been granted");
         PermissionMonitorService.stop(permissionActivity);

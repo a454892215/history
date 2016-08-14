@@ -23,7 +23,7 @@ public class PermissionMonitorService extends Service {
     public void onCreate() {
         super.onCreate();
             LogUtil.i("LLpp======onCreate===========权限监控服务=============");
-        PermissionHelper. monitorPermission();
+        PermissionHelper.getInstance().monitorPermission();
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -40,7 +40,7 @@ public class PermissionMonitorService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        PermissionHelper.isOpenMonitor = false;
+        PermissionHelper.getInstance().isOpenMonitor = false;
         LogUtil.i("=============监控服务被停止================");
     }
 }

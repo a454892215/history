@@ -13,15 +13,15 @@ public class PermissionActivity extends Activity {
         super.onCreate(savedInstanceState);
         String[] permissions = getIntent().getStringArrayExtra("ask_for_permissions");
         LogUtil.i("传递过来的权限是：" + Arrays.toString(permissions) + " 长度：" + permissions.length);
-        PermissionHelper.setPermissionActivity(this);
-        String[] hasFilteredPermissions = PermissionHelper.filterPermissions(permissions);
+        PermissionHelper.getInstance().setPermissionActivity(this);
+        String[] hasFilteredPermissions = PermissionHelper.getInstance().filterPermissions(permissions);
         requestPermission(hasFilteredPermissions);
     }
 
     private void requestPermission(String[] permissions) {
         boolean isMinSdkM = Build.VERSION.SDK_INT < Build.VERSION_CODES.M;
         if (isMinSdkM || permissions.length == 0) {
-            PermissionHelper.onAllPermissionGranted();
+            PermissionHelper.getInstance().onAllPermissionGranted();
             return;
         }
         ActivityCompat.requestPermissions(this, permissions, 1);
@@ -33,20 +33,20 @@ public class PermissionActivity extends Activity {
             boolean isTip = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[i]);
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                 if (isTip) {
-                    requestPermission(PermissionHelper.filterPermissions(permissions));
+                    requestPermission(PermissionHelper.getInstance().filterPermissions(permissions));
                 } else {
                     PermissionMonitorService.start(this);
                 }
                 return;
             }
         }
-        PermissionHelper.onAllPermissionGranted();
+        PermissionHelper.getInstance().onAllPermissionGranted();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        PermissionHelper.cancelPermissionActivity();
+        PermissionHelper.getInstance().cancelPermissionActivity();
         PermissionMonitorService.stop(this);
         LogUtil.i("========onDestroy===========");
     }
