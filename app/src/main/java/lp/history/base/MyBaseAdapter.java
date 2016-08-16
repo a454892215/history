@@ -1,11 +1,10 @@
-package lp.history;
-
+package lp.history.base;
 import android.content.Context;
 import android.widget.BaseAdapter;
 
-import org.xutils.common.util.LogUtil;
-
 import java.util.List;
+
+import commom.utils.LogUtil;
 
 public abstract class MyBaseAdapter extends BaseAdapter {
     protected List<?> list;

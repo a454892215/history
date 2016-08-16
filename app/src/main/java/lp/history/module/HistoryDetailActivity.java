@@ -1,41 +1,21 @@
 package lp.history.module;
-
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-
-import org.xutils.view.annotation.ViewInject;
-import org.xutils.x;
-
-import java.util.HashMap;
-
-import lp.history.BaseActivity;
+import lp.history.base.BaseActivity;
 import lp.history.R;
-import lp.history.entity.BaseEntity;
 import lp.history.http.HttpUtil;
 import lp.history.module.entity.HistoryDetailEntity;
-import lp.history.utils.IOUtility;
-import lp.history.utils.ToastUtil;
+
 
 public class HistoryDetailActivity extends BaseActivity {
-    @ViewInject(R.id.his_detail_content)
     TextView his_detail_content;
-
-    @ViewInject(R.id.his_detail_pic)
     ImageView his_detail_pic;
-
-    @ViewInject(R.id.his_detail_title)
     TextView his_detail_title;
 
 
@@ -43,7 +23,11 @@ public class HistoryDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_detail_acy);
-       x.view().inject(this);
+
+       his_detail_content = (TextView) findViewById(R.id.his_detail_content);
+       his_detail_pic = (ImageView) findViewById(R.id.his_detail_pic);
+       his_detail_title = (TextView) findViewById(R.id.his_detail_title);
+
        Intent intent = getIntent();
        String id = intent.getStringExtra("id");
        init(id);
@@ -52,7 +36,6 @@ public class HistoryDetailActivity extends BaseActivity {
        his_detail_title.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               IOUtility.writeToSD("\n2222222222==HistoryDetailActivity====2222222222222",(Activity)context);
            }
        });
    }

@@ -1,7 +1,8 @@
-package lp.history.utils;
+package commom.utils;
 
 import android.util.SparseArray;
 import android.view.View;
+
 public  class ViewHolder {
     public static <T extends View> T get(View view, int id) {
         SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();

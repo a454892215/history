@@ -1,19 +1,14 @@
-package lp.history;
+package lp.history.base;
 
 import android.app.Application;
 
-import org.xutils.x;
-
-import lp.history.utils.ToastUtil;
-
+import commom.utils.ToastUtil;
 
 public class AppApplication extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        x.Ext.init(this);
         ToastUtil.init(this);
-        x.Ext.setDebug(true);
     }
 }

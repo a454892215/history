@@ -5,17 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
-import org.xutils.common.util.LogUtil;
-
 import java.util.List;
-
-import lp.history.MyBaseAdapter;
+import commom.utils.LogUtil;
+import commom.utils.ViewHolder;
+import lp.history.base.MyBaseAdapter;
 import lp.history.R;
 import lp.history.module.entity.HistoryEntity;
-import lp.history.utils.ViewHolder;
+
 
 
 public class HistoryListAdapter extends MyBaseAdapter {
@@ -32,7 +29,6 @@ public class HistoryListAdapter extends MyBaseAdapter {
         TextView history_item_title= ViewHolder.get(convertView, R.id.history_item_title);
         TextView history_item_desc= ViewHolder.get(convertView, R.id.history_item_desc);
         HistoryEntity.ResultBean resultBean = (HistoryEntity.ResultBean) list.get(position);
-      //  x.image().bind(history_item_pic,resultBean.pic);
         Glide.with(context) .load(resultBean.pic).into(history_item_pic);
         LogUtil.i("LLpp:路径："+resultBean.pic);
         if(TextUtils.isEmpty(resultBean.pic)){
@@ -40,7 +36,6 @@ public class HistoryListAdapter extends MyBaseAdapter {
         }else{
             history_item_pic.setVisibility(View.VISIBLE);
         }
-        //Picasso.with(context) .load(resultBean.pic).into(history_item_pic);
         history_item_title.setText(resultBean.title);
         history_item_desc.setText(resultBean.des);
         return convertView;

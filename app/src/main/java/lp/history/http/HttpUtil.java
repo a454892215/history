@@ -9,18 +9,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-
-import org.xutils.common.Callback;
-import org.xutils.common.util.LogUtil;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
-
+import commom.utils.LogUtil;
+import commom.utils.ToastUtil;
 import lp.history.entity.BaseEntity;
-import lp.history.utils.ToastUtil;
 
 public class HttpUtil {
-
-
     public static void get(final String url, final HttpUtil.CallBack callback, Context context, final Class entityType) {
         LogUtil.i("LLp request url is " + url);
         RequestQueue mQueue = Volley.newRequestQueue(context);

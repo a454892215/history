@@ -5,8 +5,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import org.xutils.common.util.LogUtil;
 import java.util.Arrays;
+
+import commom.utils.LogUtil;
+
 public class PermissionActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {

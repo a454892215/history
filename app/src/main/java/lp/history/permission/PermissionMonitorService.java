@@ -3,7 +3,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import org.xutils.common.util.LogUtil;
+
+import commom.utils.LogUtil;
+
 public class PermissionMonitorService extends Service {
     @Override
     public IBinder onBind(Intent intent) {

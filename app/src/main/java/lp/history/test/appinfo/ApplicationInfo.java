@@ -2,12 +2,11 @@ package lp.history.test.appinfo;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-
-import org.xutils.common.util.LogUtil;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import commom.utils.LogUtil;
 
 /**
  * Created by Administrator on 2016/8/10.

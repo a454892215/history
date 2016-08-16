@@ -1,15 +1,11 @@
-package lp.history.utils;
+package commom.utils;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
-
-import org.xutils.common.util.LogUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;

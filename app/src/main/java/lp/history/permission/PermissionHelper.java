@@ -5,14 +5,11 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
-
-import org.xutils.common.util.LogUtil;
-
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import lp.history.utils.ToastUtil;
+import commom.utils.LogUtil;
+import commom.utils.ToastUtil;
 
 public class PermissionHelper {
     private static PermissionHelper permissionHelper;
@@ -83,7 +80,6 @@ public class PermissionHelper {
             }
         });
     }
-
 
     public void executeMonitor(String[] permissionsTask) {
         if (filterPermissions(permissionsTask).length == 0) {

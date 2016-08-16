@@ -20,4 +20,6 @@
     <string name="ask_again">请给予应用必要权限，让程序可正常工作。</string>
     <string name="cancel">取消</string>
     <string name="request_perm_tip">请给予权限，才能正常使用</string>
+
+    <string name="device_des">正常使用MDM产品，请点击激活。</string>
 </resources>

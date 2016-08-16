@@ -1,13 +1,11 @@
-package lp.history;
+package lp.history.base;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
-import lp.history.utils.ToastUtil;
+import commom.utils.ToastUtil;
 
 public class BaseActivity extends Activity {
     protected Context context = this;
