@@ -26,6 +26,7 @@ public class MainActivity extends BaseActivity implements Presenter {
         history_item_title = findViewById(R.id.history_item_title);
 
         init();
+        TestManager.test(this);
     }
 
 

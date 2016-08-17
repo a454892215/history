@@ -48,9 +48,8 @@
         <receiver android:name=".record.PhoneCallReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
-                <action android:name="android.intent.action.PHONE_STATE"/>
                 <!--  android4.0后不能实现广播的开机自动启动 要调用过一次后，下次才能实现开机自启动-->
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+               <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/>-->
             </intent-filter>
         </receiver>
 

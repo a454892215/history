@@ -1,6 +1,6 @@
 package lp.history.record;
 
-import lp.history.permission.PermissionHelper;
+import java.util.HashMap;
 
 /**
  * 因为PhoneCallReceiver每次回调都是新的PhoneCallReceiver对象
@@ -11,8 +11,9 @@ public class PhoneCallHelper {
 
     private static PhoneCallHelper phoneCallHelper;
     public  boolean isOutNum = false;
+    public  boolean isInNum = false;
     public  String outNum;
-    public  String inNum;
+    public HashMap<String,String> inNums ;
     public  String lastState ="";
     private PhoneCallHelper() {
     }

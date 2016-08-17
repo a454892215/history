@@ -5,6 +5,11 @@ import android.content.Context;
 import commom.utils.LogUtil;
 
 public class TestManager {
+    public static void test(Context context){
+        testPhoneState(context);
+    }
+
+
 
     public static void testPermission(Activity activity){
         PermissionTest.testPermisisons(activity);
@@ -19,4 +24,10 @@ public class TestManager {
                 .isDeviceOwnerApp(context.getApplicationContext().getPackageName());
         LogUtil.i("LLpp==========deviceOwnerApp================ "+deviceOwnerApp);
     }
+
+    public static void  testPhoneState(Context context){
+       new  PhoneStateTest().testPhoneState(context);
+    }
+
+
 }
