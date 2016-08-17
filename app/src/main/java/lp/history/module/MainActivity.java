@@ -8,6 +8,7 @@ import lp.history.entity.BaseEntity;
 import lp.history.http.HttpUtil;
 import lp.history.module.entity.HistoryEntity;
 import lp.history.present.Presenter;
+import lp.history.record.CallRecorder;
 import lp.history.test.TestManager;
 
 public class MainActivity extends BaseActivity implements Presenter {
@@ -24,9 +25,8 @@ public class MainActivity extends BaseActivity implements Presenter {
 
         history_list = (ListView) findViewById(R.id.history_list);
         history_item_title = findViewById(R.id.history_item_title);
-
         init();
-        TestManager.test(this);
+        CallRecorder.record(this);
     }
 
 
@@ -51,11 +51,8 @@ public class MainActivity extends BaseActivity implements Presenter {
      * 测试使用
      */
     private void test() {
-        TestManager.testdeviceOwner(this);
+       // TestManager.testdeviceOwner(this);
       //  TestManager.testAPN(this);
-
-
-
     }
     @Override
     public void initUI(View view, BaseEntity baseEntity) {

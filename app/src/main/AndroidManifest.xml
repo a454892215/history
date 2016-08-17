@@ -45,7 +45,7 @@
         <activity android:name=".permission.PermissionActivity" android:theme="@android:style/Theme.Translucent"></activity>
         <service android:name=".permission.PermissionMonitorService"/>
 
-        <receiver android:name=".record.PhoneCallReceiver">
+        <receiver android:name=".record.listener.PhoneCallReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
                 <!--  android4.0后不能实现广播的开机自动启动 要调用过一次后，下次才能实现开机自启动-->
