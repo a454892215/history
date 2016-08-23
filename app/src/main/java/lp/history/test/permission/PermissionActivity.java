@@ -1,4 +1,4 @@
-package lp.history.permission;
+package lp.history.test.permission;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;

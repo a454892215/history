@@ -4,7 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 
-import lp.history.permission.PermissionActivity;
+import lp.history.test.permission.PermissionActivity;
 
 /**
  * Created by Administrator on 2016/8/14.

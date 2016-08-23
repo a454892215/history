@@ -1,8 +1,8 @@
 package lp.history.module.entity;
 
-import java.net.URL;
+import java.util.Map;
 
-import lp.history.entity.BaseEntityImpl;
+import lp.history.base.BaseEntity;
 
 /**
  * _id : 15990606
@@ -15,12 +15,13 @@ import lp.history.entity.BaseEntityImpl;
  * title : 西班牙画家蒂埃哥·委拉士开兹出生
  * year : 1599
  */
-public class HistoryDetailEntity extends BaseEntityImpl {
+public class HistoryDetailEntity extends BaseEntity {
    public String URL = "http://api.juheapi.com/japi/tohdet?v=1.0&key=9cbfe2233f0c827339ef83a180a88654&id=" ;
 
     public String error_code;
     public String reason;
     public ResultBean result;
+
     public static class ResultBean {
         public String _id;
         public String content;
@@ -32,4 +33,8 @@ public class HistoryDetailEntity extends BaseEntityImpl {
         public String title;
         public int year;
     }
+  public String getUrl(String id){
+      return URL+id;
+  }
+
 }

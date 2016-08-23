@@ -1,4 +1,4 @@
-package lp.history.record;
+package lp.history.test.record;
 import android.app.Service;
 import android.content.Intent;
 import android.media.AudioFormat;
@@ -256,7 +256,7 @@ public class AudioRecorderService extends Service {
      * Initialize audio record
      *
      * @param
-     * @return android.media.AudioRecord
+     * @return android.media.AudioRecordSetting
      */
     private AudioRecord initializeRecord() {
         short[] audioFormat = new short[]{AudioFormat.ENCODING_PCM_16BIT, AudioFormat.ENCODING_PCM_8BIT};

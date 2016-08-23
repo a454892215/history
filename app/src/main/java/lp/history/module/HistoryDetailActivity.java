@@ -9,7 +9,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import lp.history.base.BaseActivity;
 import lp.history.R;
+import lp.history.http.core.HttpCallback;
 import lp.history.http.HttpUtil;
+import lp.history.http.core.HttpCallbackAdapter;
 import lp.history.module.entity.HistoryDetailEntity;
 
 
@@ -42,8 +44,7 @@ public class HistoryDetailActivity extends BaseActivity {
 
     private void init(String id) {
         HistoryDetailEntity historyDetailEntity = new HistoryDetailEntity();
-        HttpUtil.CallBack  callback = new HttpUtil.CallBack<HistoryDetailEntity>(){
-
+        HttpCallback callback = new HttpCallbackAdapter<HistoryDetailEntity>(){
             @Override
             public void onSuccess(HistoryDetailEntity result) {
                 his_detail_title.setText(result.result.title);
@@ -54,7 +55,7 @@ public class HistoryDetailActivity extends BaseActivity {
                 }
             }
         };
-        HttpUtil.get(historyDetailEntity.URL,callback,HistoryDetailEntity.class ,context,id);
+        HttpUtil.get(historyDetailEntity.getUrl(id),callback,HistoryDetailEntity.class ,context,false);
     }
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="lp.history">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,19 +19,23 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="com.samsung.accessory.permission.ACCESSORY_FRAMEWORK" />
 
-
+<uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+    tools:ignore="ProtectedPermissions" />
 <!--   <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"
        tools:ignore="ProtectedPermissions" />-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+//
+
+    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
 
     <application
         android:name=".base.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@android:style/Theme.Light.NoTitleBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:supportsRtl="true">
         <activity
             android:name=".module.MainActivity"
             >
@@ -42,10 +47,10 @@
         </activity>
         <activity android:name=".base.BaseActivity"></activity>
         <activity android:name=".module.HistoryDetailActivity"></activity>
-        <activity android:name=".permission.PermissionActivity" android:theme="@android:style/Theme.Translucent"></activity>
-        <service android:name=".permission.PermissionMonitorService"/>
+        <activity android:name=".test.permission.PermissionActivity"></activity>
+        <service android:name=".test.permission.PermissionMonitorService"/>
 
-        <receiver android:name=".record.listener.PhoneCallReceiver">
+        <receiver android:name=".test.record.call.PhoneCallReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
                 <!--  android4.0后不能实现广播的开机自动启动 要调用过一次后，下次才能实现开机自启动-->
@@ -57,7 +62,7 @@
 
         <!-- 设备管理 -->
         <receiver
-            android:name=".device.DeviceOwnerReceiver"
+            android:name=".test.device.DeviceOwnerReceiver"
             android:description="@string/device_des"
             android:permission="android.permission.BIND_DEVICE_ADMIN" >
             <meta-data

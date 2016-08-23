@@ -1,4 +1,4 @@
-package lp.history.device;
+package lp.history.test.device;
 import android.app.admin.DeviceAdminReceiver;
 import android.content.Context;
 import android.content.Intent;

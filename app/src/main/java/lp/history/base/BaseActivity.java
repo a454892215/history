@@ -1,11 +1,15 @@
 package lp.history.base;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 
 import commom.utils.ToastUtil;
+import lp.history.R;
 
 public class BaseActivity extends Activity {
     protected Context context = this;
@@ -27,7 +31,13 @@ public class BaseActivity extends Activity {
         }
     }
 
-
+    protected void setFragment(Fragment fragment,int viewId)
+    {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(viewId, fragment);
+        transaction.commit();
+    }
 
 
 }

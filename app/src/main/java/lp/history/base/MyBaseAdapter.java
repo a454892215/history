@@ -7,15 +7,20 @@ import java.util.List;
 import commom.utils.LogUtil;
 
 public abstract class MyBaseAdapter extends BaseAdapter {
-    protected List<?> list;
+    protected List list;
     protected Context context;
 
     public MyBaseAdapter(Context context, List<?> list) {
-        LogUtil.i("LLpp:=====================:size"+list.size());
+        LogUtil.i("=========MyBaseAdapter============:size"+list.size());
         this.list = list;
         this.context = context;
     }
 
+    public void addData(List list){
+        this.list.addAll(list);
+        LogUtil.i("=====addData()==size:"+ this.list.size());
+        this.notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return list.size();

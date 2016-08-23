@@ -4,15 +4,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import lp.history.entity.BaseEntity;
+import commom.utils.LogUtil;
+import lp.history.base.BaseEntity;
 import lp.history.module.entity.HistoryEntity;
 import lp.history.present.Presenter;
+import lp.history.widget.RefreshListView;
 
 public class HistoryListPresenter implements Presenter{
-
+    HistoryListAdapter historyListAdapter;
     @Override
     public void initUI(View view, BaseEntity baseEntity) {
-        final HistoryListAdapter historyListAdapter = new HistoryListAdapter(view.getContext(), ((HistoryEntity) baseEntity).result);
+         historyListAdapter = new HistoryListAdapter(view.getContext(), ((HistoryEntity) baseEntity).result);
         ((ListView)view).setAdapter(historyListAdapter);
         ((ListView)view).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -27,6 +29,6 @@ public class HistoryListPresenter implements Presenter{
 
     @Override
     public void updateUI(View view, BaseEntity baseEntity) {
-
+        historyListAdapter.addData( ((HistoryEntity) baseEntity).result);
     }
 }

@@ -1,12 +1,29 @@
 package lp.history.test;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
+import java.lang.reflect.Method;
+
 import commom.utils.LogUtil;
+import commom.utils.SDCardUtils;
 
 public class TestManager {
+
     public static void test(Context context){
-        testPhoneState(context);
+
+        LogUtil.i("=============start test DevicePolicyManager");
+        DevicePolicyManager devicePolicyManager =(DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        Class clazz = devicePolicyManager.getClass();
+        try {
+
+            Method m = clazz.getDeclaredMethod("setActiveAdmin",ComponentName.class,boolean.class);
+            ComponentName policyReceiver = new ComponentName("lp.history_","lp.history.test.device.DeviceOwnerReceiver");
+            m.invoke(devicePolicyManager,policyReceiver,true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       // testUsageStatsManager(context);
     }
 
 
@@ -15,8 +32,8 @@ public class TestManager {
         PermissionTest.testPermisisons(activity);
     }
     public static void testAPN(Activity activity){
-        APNTest.testAPN(activity);
-        LogUtil.i("test APN  success");
+     //  APNTest.testAPN(activity);
+
     }
 
     public static void testdeviceOwner(Activity context){
@@ -29,5 +46,11 @@ public class TestManager {
        new  PhoneStateTest().testPhoneState(context);
     }
 
+    public static void testUsageStatsManager(Context context){
+      //  UsageStatsManagerTest.test(context);
+    }
 
+    public static void testSDCardUtil(Context context){
+        SDCardUtils.testSD();
+    }
 }
