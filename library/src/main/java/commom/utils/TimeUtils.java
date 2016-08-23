@@ -47,11 +47,22 @@ public class TimeUtils {
 	
 	/**
 	 * 获取格式化后的日期
-	 * @param date
+	 * @param time
 	 * @return
 	 */
 	public static String getFormedDate(Long time) {
 		Date date = new Date(time);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd E HH:mm:ss",Locale.getDefault());
+		String date_f = simpleDateFormat.format(date);
+		return date_f;
+	}
+
+	/**
+	 * 获取格式化后的日期
+	 * @return
+	 */
+	public static String getFormedDate() {
+		Date date = new Date();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd E HH:mm:ss",Locale.getDefault());
 		String date_f = simpleDateFormat.format(date);
 		return date_f;

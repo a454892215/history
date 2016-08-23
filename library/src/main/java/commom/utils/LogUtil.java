@@ -17,7 +17,7 @@ public class LogUtil {
         if (LEVEL <= VERBOSE) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
             String tag = getLogLocation(stackTraceElement);
-            Log.v(tag,  message);
+            Log.v(tag, "LLpp:"+ message);
         }
     }
  
@@ -25,14 +25,14 @@ public class LogUtil {
         if (LEVEL <= DEBUG) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
             String tag = getLogLocation(stackTraceElement);
-            Log.d(tag, message);
+            Log.d(tag, "LLpp:"+ message);
         }
     }
     public static void i(String message) {
         if (LEVEL <= INFO) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
             String tag = getLogLocation(stackTraceElement);
-            Log.i(tag,message);
+            Log.i(tag,"LLpp:"+ message);
         }
     }
  
@@ -41,7 +41,7 @@ public class LogUtil {
         if (LEVEL <= WARN) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
             String tag = getLogLocation(stackTraceElement);
-            Log.w(tag, message);
+            Log.w(tag,"LLpp:"+ message);
         }
     }
     
@@ -52,7 +52,7 @@ public class LogUtil {
             if (TextUtils.isEmpty(tag)) {
                 tag = getLogLocation(stackTraceElement);
             }
-            Log.e(tag, message);
+            Log.e(tag, "LLpp:"+ message);
         }
     }
     
