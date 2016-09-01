@@ -1,5 +1,4 @@
-package lp.history.module;
-import android.content.Intent;
+package lp.history.today;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,7 +11,7 @@ import lp.history.R;
 import lp.history.http.core.HttpCallback;
 import lp.history.http.HttpUtil;
 import lp.history.http.core.HttpCallbackAdapter;
-import lp.history.module.entity.HistoryDetailEntity;
+import lp.history.today.entity.HistoryDetailEntity;
 
 
 public class HistoryDetailActivity extends BaseActivity {
@@ -30,8 +29,7 @@ public class HistoryDetailActivity extends BaseActivity {
        his_detail_pic = (ImageView) findViewById(R.id.his_detail_pic);
        his_detail_title = (TextView) findViewById(R.id.his_detail_title);
 
-       Intent intent = getIntent();
-       String id = intent.getStringExtra("id");
+       String id = getIntent().getStringExtra("id");
        init(id);
 
 

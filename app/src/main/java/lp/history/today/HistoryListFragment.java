@@ -1,8 +1,8 @@
-package lp.history.module;
+package lp.history.today;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import lp.history.R;
 import lp.history.base.BaseEntity;
 import lp.history.http.HttpUtil;
 import lp.history.http.core.HttpCallback;
-import lp.history.module.entity.HistoryEntity;
+import lp.history.today.entity.HistoryEntity;
 import lp.history.present.Presenter;
 import lp.history.widget.RefreshListView;
 
@@ -19,16 +19,11 @@ public class HistoryListFragment extends Fragment implements Presenter, HttpCall
 
     Presenter historyListPresent = new HistoryListPresenter();
     View view;
-
-    protected static Fragment getInstance() {
-        return new HistoryListFragment();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.his_today_list, container, false);
+            view = inflater.inflate(R.layout.today_fragmentlist, container, false);
         }
         return view;
     }
@@ -36,14 +31,14 @@ public class HistoryListFragment extends Fragment implements Presenter, HttpCall
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        history_list = (RefreshListView) view.findViewById(R.id.history_list);
-
-        init();
+        if(history_list==null){
+            history_list = (RefreshListView) view.findViewById(R.id.top_list);
+            init();
+        }
     }
 
 
     private void init() {
-
         history_list.setLoadMore(this);
         HttpUtil.get(HistoryEntity.getUrl(false), this, HistoryEntity.class, getActivity(), false);
     }

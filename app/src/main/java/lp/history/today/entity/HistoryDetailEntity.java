@@ -1,6 +1,4 @@
-package lp.history.module.entity;
-
-import java.util.Map;
+package lp.history.today.entity;
 
 import lp.history.base.BaseEntity;
 

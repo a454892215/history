@@ -4,10 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".module.MainActivity">
+    tools:context=".MainActivity">
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/head_height"
+       android:text="历史的今天"
+       android:textSize="18sp"
+       android:gravity="center"
+       android:background="@color/head_color"/>
 
    <lp.history.widget.RefreshListView
-       android:id="@+id/history_list"
+       android:id="@+id/top_list"
        android:layout_width="match_parent"
        android:dividerHeight="0.7dp"
        android:divider="#cccccc"

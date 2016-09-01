@@ -46,10 +46,10 @@ public class CallStateListener {
      */
     private void onOffHook() {
         if (!TextUtils.isEmpty(inNumber)) {
-            phoneStateChangeCallback.onInComingOffHook(inNumber);
+            phoneStateChangeCallback.onInComingOffHook(inNumber);//拨入接通
         } else {
             outNumber = PhoneCallReceiver.getOutNumber();
-            phoneStateChangeCallback.onOutComingStart(outNumber);
+            phoneStateChangeCallback.onOutComingStart(outNumber);//播出开始
         }
     }
 

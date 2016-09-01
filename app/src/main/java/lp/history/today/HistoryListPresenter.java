@@ -1,14 +1,12 @@
-package lp.history.module;
+package lp.history.today;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import commom.utils.LogUtil;
 import lp.history.base.BaseEntity;
-import lp.history.module.entity.HistoryEntity;
+import lp.history.today.entity.HistoryEntity;
 import lp.history.present.Presenter;
-import lp.history.widget.RefreshListView;
 
 public class HistoryListPresenter implements Presenter{
     HistoryListAdapter historyListAdapter;
@@ -20,9 +18,11 @@ public class HistoryListPresenter implements Presenter{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HistoryEntity.ResultBean item = (HistoryEntity.ResultBean) historyListAdapter.getItem(position);
-                Intent intent = new Intent(view.getContext(),HistoryDetailActivity.class);
-                intent.putExtra("id",item._id);
-                view.getContext().startActivity(intent);
+                if(item!=null){
+                    Intent intent = new Intent(view.getContext(),HistoryDetailActivity.class);
+                    intent.putExtra("id",item._id);
+                    view.getContext().startActivity(intent);
+                }
             }
         });
     }

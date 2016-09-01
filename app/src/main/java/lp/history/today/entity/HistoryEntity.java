@@ -1,7 +1,6 @@
-package lp.history.module.entity;
+package lp.history.today.entity;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import commom.utils.LogUtil;
 import commom.utils.TimeUtils;

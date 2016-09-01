@@ -34,9 +34,9 @@ public class PermissionActivity extends Activity {
         for (int i = 0; i < grantResults.length; i++) {
             boolean isTip = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[i]);
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                if (isTip) {
+                if (isTip) {//表明用户没有彻底禁止弹出权限请求
                     requestPermission(PermissionHelper.getInstance().filterPermissions(permissions));
-                } else {
+                } else {//表明用户已经彻底禁止弹出权限请求
                     PermissionMonitorService.start(this);
                 }
                 return;

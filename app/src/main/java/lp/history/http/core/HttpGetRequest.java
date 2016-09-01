@@ -14,19 +14,19 @@ import lp.history.base.BaseEntity;
  * Created by 刘攀
  */
 public class HttpGetRequest {
-    public static void get(final String url, final HttpCallback callback, Context context, final Class entityType, final boolean isLoadMore) {
+    public static  <T> void  get(final String url, final HttpCallback callback, Context context, final Class<T> entityType, final boolean isLoadMore) {
         LogUtil.i("request url is " + url);
         RequestQueue mQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        BaseEntity baseEntity = DataHandler.encapsulateData(response, entityType);
-                        if (baseEntity != null) {
+                        T entity = DataHandler.encapsulateData(response, entityType);
+                        if (entity != null) {
                             if(isLoadMore){
-                                callback.onLoadMoreSuccess(baseEntity);
+                                callback.onLoadMoreSuccess(entity);
                             }else{
-                                callback.onSuccess(baseEntity);
+                                callback.onSuccess(entity);
                             }
                         } else {
                             LogUtil.i("encapsulate data fail :" + response);

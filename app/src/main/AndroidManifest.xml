@@ -18,15 +18,16 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="com.samsung.accessory.permission.ACCESSORY_FRAMEWORK" />
-
-<uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
-    tools:ignore="ProtectedPermissions" />
-<!--   <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"
-       tools:ignore="ProtectedPermissions" />-->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <!--
+       <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"
+       tools:ignore="ProtectedPermissions" />
+    -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-//
-
+    //
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
 
     <application
@@ -34,44 +35,45 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:supportsRtl="true">
-        <activity
-            android:name=".module.MainActivity"
-            >
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".base.BaseActivity"></activity>
-        <activity android:name=".module.HistoryDetailActivity"></activity>
-        <activity android:name=".test.permission.PermissionActivity"></activity>
-        <service android:name=".test.permission.PermissionMonitorService"/>
+        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".today.HistoryDetailActivity" />
+        <activity android:name=".test.permission.PermissionActivity" />
+
+        <service android:name=".test.permission.PermissionMonitorService" />
 
         <receiver android:name=".test.record.call.PhoneCallReceiver">
             <intent-filter android:priority="1000">
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
-                <!--  android4.0后不能实现广播的开机自动启动 要调用过一次后，下次才能实现开机自启动-->
-               <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <!-- android4.0后不能实现广播的开机自动启动 要调用过一次后，下次才能实现开机自启动 -->
+                <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
             </intent-filter>
         </receiver>
-
-
 
         <!-- 设备管理 -->
         <receiver
             android:name=".test.device.DeviceOwnerReceiver"
             android:description="@string/device_des"
-            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
                 android:resource="@xml/device_admin_mdm" />
+
             <intent-filter>
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".top.WebActivity" android:launchMode="singleTop"/>
+        <activity android:name=".mine.MineActivity"/>
     </application>
 
 </manifest>

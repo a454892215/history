@@ -28,7 +28,10 @@ public abstract class MyBaseAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        if(list.size()>position){
+            return list.get(position);
+        }
+       return null; //Bug
     }
 
     @Override

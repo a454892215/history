@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:layout_height="wrap_content"
+    tools:context=".mine.MineFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+        <ImageView
+            android:id="@+id/mine_img_head"
+            android:layout_width="@dimen/mine_head_size"
+            android:layout_height="@dimen/mine_head_size"
+            android:src="@mipmap/icon_drawer_portrait"
+            android:background="@drawable/ring_white"
+            android:padding="2dp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

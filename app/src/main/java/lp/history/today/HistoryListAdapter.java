@@ -1,4 +1,4 @@
-package lp.history.module;
+package lp.history.today;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
@@ -6,14 +6,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 import commom.utils.LogUtil;
 import commom.utils.ViewHolder;
 import lp.history.base.MyBaseAdapter;
 import lp.history.R;
-import lp.history.module.entity.HistoryEntity;
+import lp.history.today.entity.HistoryEntity;
 
 
 
@@ -27,16 +26,27 @@ public class HistoryListAdapter extends MyBaseAdapter {
         if(convertView==null){
             convertView = View.inflate(context,R.layout.history_item,null);
         }
-        ImageView history_item_pic= ViewHolder.get(convertView, R.id.history_item_pic);
+        final ImageView history_item_pic= ViewHolder.get(convertView, R.id.history_item_pic);
         TextView history_item_title= ViewHolder.get(convertView, R.id.history_item_title);
         TextView history_item_desc= ViewHolder.get(convertView, R.id.history_item_desc);
-        HistoryEntity.ResultBean resultBean = (HistoryEntity.ResultBean) list.get(position);
-        Glide.with(context) .load(resultBean.pic).diskCacheStrategy(DiskCacheStrategy.RESULT).into(history_item_pic);
-       // LogUtil.i("LLpp:路径："+resultBean.pic);
+        final HistoryEntity.ResultBean resultBean = (HistoryEntity.ResultBean) list.get(position);
+        LogUtil.d("LLpp:路径："+resultBean.pic+" title:"+resultBean.title);
         if(TextUtils.isEmpty(resultBean.pic)){
             history_item_pic.setVisibility(View.GONE);
         }else{
             history_item_pic.setVisibility(View.VISIBLE);
+            Glide.with(context) .load(resultBean.pic).into(history_item_pic);
+        /*    Glide.with(context).load(resultBean.pic).asBitmap().into(new SimpleTarget<Bitmap>() {
+                @Override
+                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                }
+                @Override
+                public void onLoadFailed(Exception e, Drawable errorDrawable) {
+                    super.onLoadFailed(e, errorDrawable);
+                    LogUtil.e("LLpp:加载失败："+resultBean.pic+" title:"+resultBean.title);
+                    history_item_pic.setVisibility(View.GONE);
+                }
+            }); //方法中设置asBitmap可以设置回调类型*/
         }
         history_item_title.setText(resultBean.title);
         history_item_desc.setText(resultBean.des);

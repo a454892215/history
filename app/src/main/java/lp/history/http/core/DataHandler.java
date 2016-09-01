@@ -6,7 +6,7 @@ import lp.history.base.BaseEntity;
 
 public class DataHandler {
 
-    public static BaseEntity encapsulateData(String result, Class entityType) {
-        return (BaseEntity) new Gson().fromJson(result, entityType);
+    public static <T> T encapsulateData(String result, Class<T> type) {
+        return  new Gson().fromJson(result, type);
     }
 }
