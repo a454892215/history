@@ -21,6 +21,13 @@ public abstract class MyBaseAdapter extends BaseAdapter {
         LogUtil.i("=====addData()==size:"+ this.list.size());
         this.notifyDataSetChanged();
     }
+
+    public void setData(List list){
+        this.list.clear();
+        this.list.addAll(list);
+        LogUtil.i("=====setData()==size:"+ this.list.size());
+        this.notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return list.size();

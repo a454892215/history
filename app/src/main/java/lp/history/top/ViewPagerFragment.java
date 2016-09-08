@@ -3,6 +3,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +15,6 @@ import lp.history.widget.ViewPagerIndicator;
 
 public class ViewPagerFragment extends Fragment {
     private ViewPager main_content_vp;
-    private ViewPagerIndicator top_indicator;
     private View view;
 
     @Override
@@ -30,15 +33,25 @@ public class ViewPagerFragment extends Fragment {
            initUI(view);
        }
     }
-
+    RecyclerView recyclerView;
     private void initUI(View view) {
         main_content_vp = (ViewPager) view.findViewById(R.id.main_content_vp);
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getChildFragmentManager(), TopFragmentFactory.getFragments());
-        top_indicator = (ViewPagerIndicator) view.findViewById(R.id.top_indicator);
-        top_indicator.setTitles("头条", "社会", "国内", "国际", "娱乐", "体育", "军事", "科技", "财经", "时尚");
-        top_indicator.setViewPager(main_content_vp);
+        recyclerView   = (RecyclerView) view.findViewById(R.id.top_indicator_ry);
+        setRecyclerView(recyclerView);
         main_content_vp.setAdapter(fragmentAdapter);
         main_content_vp.addOnPageChangeListener(onPageChangeListener);
+    }
+    IndicatorRecycleAdapter indicatorRecycleAdapter;
+    private void setRecyclerView(RecyclerView recyclerView) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);recyclerView.setSelected(true);
+        layoutManager.setOrientation(OrientationHelper.HORIZONTAL);
+        indicatorRecycleAdapter = new IndicatorRecycleAdapter(getActivity(),recyclerView);
+        indicatorRecycleAdapter.setViewPager(main_content_vp);
+        recyclerView.setAdapter( indicatorRecycleAdapter);
+        // recyclerView.addItemDecoration( new DividerGridItemDecoration(this));
+        recyclerView.setItemAnimator( new DefaultItemAnimator());
     }
 
 
@@ -54,8 +67,16 @@ public class ViewPagerFragment extends Fragment {
         }
 
         @Override
-        public void onPageSelected(int position) {
-            top_indicator.onSelectedChanged(position);
+        public void onPageSelected(final int position) {
+            recyclerView.scrollToPosition(position);
+            indicatorRecycleAdapter.clearSelect();
+            recyclerView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    indicatorRecycleAdapter.onSelectedChanged(position,getActivity());
+                }
+            },10);
+
         }
 
         @Override

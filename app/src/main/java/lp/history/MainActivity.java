@@ -3,6 +3,7 @@ import android.os.Bundle;
 import android.widget.RadioGroup;
 import lp.history.base.BaseActivity;
 import lp.history.mine.MineFragment;
+import lp.history.test.TestManager;
 import lp.history.today.HistoryListFragment;
 import lp.history.top.ViewPagerFragment;
 
@@ -17,6 +18,8 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.main_aty);
         initFragment();
         initFooter();
+
+
     }
 
     private void initFragment() {
@@ -57,4 +60,9 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        TestManager.test(this);
+    }
 }

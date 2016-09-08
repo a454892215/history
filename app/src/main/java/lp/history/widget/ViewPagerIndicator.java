@@ -27,6 +27,7 @@ public class ViewPagerIndicator extends HorizontalScrollView implements View.OnC
     public ViewPagerIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+
         setBackgroundColor(getResources().getColor(R.color.head_color));
         setHorizontalScrollBarEnabled(false);
     }
@@ -90,11 +91,5 @@ public class ViewPagerIndicator extends HorizontalScrollView implements View.OnC
         listTitles.get(index).setTextColor(getResources().getColor(R.color.checkedTextColor));
         listSelected.get(index).setVisibility(VISIBLE);
     }
-   public int getItemViewWidth(int index){
-        return llt_content.getChildAt(index).getWidth();
-    }
 
-  public void  scrollToSelectedView(int selectedndex){
-
-  }
 }

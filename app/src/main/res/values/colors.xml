@@ -6,6 +6,8 @@
     <color name="transparent">#0000</color>
     <color name="nattier_blue">#333F51B5</color>
     <color name="textColor">#cc000000</color>
+    <color name="bg_head_footer">#11000000</color>
+    <color name="textColor_small">#aa000000</color>
     <color name="checkedTextColor">#99ff0000</color>
-    <color name="head_color">#663F51B5</color>
+    <color name="head_color">#11000000</color>
 </resources>

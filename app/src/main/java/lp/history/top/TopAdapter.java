@@ -21,11 +21,15 @@ public class TopAdapter extends MyBaseAdapter {
         }
         TextView top_title= ViewHolder.get(convertView, R.id.top_title);
         ImageView top_img_1= ViewHolder.get(convertView, R.id.top_img_1);
-
+        TextView top_author= ViewHolder.get(convertView, R.id.top_author);
+      //  TextView top_time= ViewHolder.get(convertView, R.id.top_time);
         TopEntity.ResultBean.DataBean resultBean  = (TopEntity.ResultBean.DataBean) list.get(position);
-        LogUtil.d("LLpp:路径："+resultBean.thumbnail_pic_s+" title:"+resultBean.title);
+      //  LogUtil.d("LLpp:路径："+resultBean.thumbnail_pic_s+" title:"+resultBean.title);
         Glide.with(context).load(resultBean.thumbnail_pic_s).into(top_img_1);
-        top_title.setText(resultBean.title);
+        top_title.setText(resultBean.title.toString().replaceAll("\\s*", ""));
+        LogUtil.d("(resultBean.title:"+resultBean.title.toString().replaceAll("\\s*", ""));
+        top_author.setText(resultBean.author_name);
+      //  top_time.setText();
         return convertView;
     }
 }
