@@ -2,17 +2,15 @@ package lp.history;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
-import java.util.Observer;
-
 import lp.history.base.BaseActivity;
 import lp.history.mine.MineFragment;
 import lp.history.test.TestManager;
 import lp.history.today.HistoryListFragment;
-import lp.history.top.ViewPagerFragment;
+import lp.history.top.TopNewsFragment;
 
 public class MainActivity extends BaseActivity {
     private MineFragment mineFragment;
-    private ViewPagerFragment viewPagerFragment;
+    private TopNewsFragment topNewsFragment;
     private HistoryListFragment historyListFragment;
 
     @Override
@@ -25,9 +23,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initFragment() {
-        viewPagerFragment = new ViewPagerFragment();
-        addFragment(viewPagerFragment, R.id.main_fl_content_top);
-        showFragment(viewPagerFragment);
+        topNewsFragment = new TopNewsFragment();
+        addFragment(topNewsFragment, R.id.main_fl_content_top);
+        showFragment(topNewsFragment);
         mineFragment = new MineFragment();
         addFragment(mineFragment, R.id.main_fl_content_mine);
         hideFragment(mineFragment);
@@ -45,15 +43,15 @@ public class MainActivity extends BaseActivity {
                     case R.id.main_rb_top:
                         hideFragment(mineFragment);
                         hideFragment(historyListFragment);
-                        showFragment(viewPagerFragment);
+                        showFragment(topNewsFragment);
                         break;
                     case R.id.main_rb_today:
-                        hideFragment(viewPagerFragment);
+                        hideFragment(topNewsFragment);
                         hideFragment(mineFragment);
                         showFragment(historyListFragment);
                         break;
                     case R.id.main_rb_mine:
-                        hideFragment(viewPagerFragment);
+                        hideFragment(topNewsFragment);
                         hideFragment(historyListFragment);
                         showFragment(mineFragment);
                         break;

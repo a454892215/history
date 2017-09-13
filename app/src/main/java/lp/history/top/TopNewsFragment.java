@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import lp.history.R;
 import lp.history.widget.ViewPagerIndicator;
 
-public class ViewPagerFragment extends Fragment {
+public class TopNewsFragment extends Fragment {
     private ViewPager main_content_vp;
     private View view;
 

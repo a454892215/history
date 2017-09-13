@@ -1,4 +1,5 @@
 package lp.history.mine;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import commom.utils.LogUtil;
+import commom.utils.ToastUtil;
 import lp.history.R;
+import lp.history.message.MessagePushActivity;
 
 public class MineFragment extends Fragment {
     View view;
@@ -17,7 +20,16 @@ public class MineFragment extends Fragment {
         if(view==null){
             view = inflater.inflate(R.layout.mine_fragment, container, false);
             ImageView mine_img_head = (ImageView) view.findViewById(R.id.mine_img_head);
+            View mine_message_push = view.findViewById(R.id.mine_message_push);
+
+            mine_message_push.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(),MessagePushActivity.class));
+                }
+            });
             LogUtil.i("========onCreateView===========view:"+view);
+
 
 /*            Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.react); //获取Bitmap图片
             RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), src); //创建RoundedBitmapDrawable对象
