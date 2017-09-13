@@ -1,6 +1,6 @@
 package lp.history.today.entity;
 
-import lp.history.base.BaseEntity;
+import java.util.List;
 
 /**
  * _id : 15990606
@@ -13,12 +13,12 @@ import lp.history.base.BaseEntity;
  * title : 西班牙画家蒂埃哥·委拉士开兹出生
  * year : 1599
  */
-public class HistoryDetailEntity extends BaseEntity {
+public class HistoryDetailEntity  {
    public String URL = "http://api.juheapi.com/japi/tohdet?v=1.0&key=9cbfe2233f0c827339ef83a180a88654&id=" ;
 
     public String error_code;
     public String reason;
-    public ResultBean result;
+    public List<ResultBean> result;
 
     public static class ResultBean {
         public String _id;

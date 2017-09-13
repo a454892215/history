@@ -1,4 +1,4 @@
-package lp.history.http.core;
+package commom.http.core;
 public class HttpCallbackAdapter<T> implements HttpCallback<T>{
     @Override
     public void onSuccess(T result) {

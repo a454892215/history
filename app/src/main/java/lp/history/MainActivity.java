@@ -1,6 +1,9 @@
 package lp.history;
 import android.os.Bundle;
 import android.widget.RadioGroup;
+
+import java.util.Observer;
+
 import lp.history.base.BaseActivity;
 import lp.history.mine.MineFragment;
 import lp.history.test.TestManager;
@@ -8,8 +11,8 @@ import lp.history.today.HistoryListFragment;
 import lp.history.top.ViewPagerFragment;
 
 public class MainActivity extends BaseActivity {
-    MineFragment mineFragment;
-    ViewPagerFragment viewPagerFragment;
+    private MineFragment mineFragment;
+    private ViewPagerFragment viewPagerFragment;
     private HistoryListFragment historyListFragment;
 
     @Override
@@ -18,7 +21,6 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.main_aty);
         initFragment();
         initFooter();
-
 
     }
 

@@ -1,4 +1,4 @@
-package lp.history.http.core;
+package commom.http.core;
 
 public interface HttpCallback<T> {
     void onSuccess(T result);

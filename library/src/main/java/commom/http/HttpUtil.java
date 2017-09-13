@@ -1,7 +1,7 @@
-package lp.history.http;
+package commom.http;
 import android.content.Context;
-import lp.history.http.core.HttpCallback;
-import lp.history.http.core.HttpGetRequest;
+import commom.http.core.HttpCallback;
+import commom.http.core.HttpGetRequest;
 
 public class HttpUtil {
     public static void get(String url, HttpCallback call, Class entityType, Context context,boolean isLoadMore) {

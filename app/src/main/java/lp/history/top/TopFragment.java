@@ -12,8 +12,8 @@ import android.widget.AdapterView;
 
 import commom.utils.LogUtil;
 import lp.history.R;
-import lp.history.http.HttpUtil;
-import lp.history.http.core.HttpCallback;
+import commom.http.HttpUtil;
+import commom.http.core.HttpCallback;
 import lp.history.widget.RefreshListView;
 
 /**

@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import lp.history.base.BaseActivity;
 import lp.history.R;
-import lp.history.http.core.HttpCallback;
-import lp.history.http.HttpUtil;
-import lp.history.http.core.HttpCallbackAdapter;
+import commom.http.core.HttpCallback;
+import commom.http.HttpUtil;
+import commom.http.core.HttpCallbackAdapter;
 import lp.history.today.entity.HistoryDetailEntity;
 
 
@@ -45,11 +45,11 @@ public class HistoryDetailActivity extends BaseActivity {
         HttpCallback callback = new HttpCallbackAdapter<HistoryDetailEntity>(){
             @Override
             public void onSuccess(HistoryDetailEntity result) {
-                his_detail_title.setText(result.result.title);
-                his_detail_content.setText(result.result.content);
-                if(!TextUtils.isEmpty(result.result.pic)){
+                his_detail_title.setText(result.result.get(0).title);
+                his_detail_content.setText(result.result.get(0).content);
+                if(!TextUtils.isEmpty(result.result.get(0).pic)){
                     his_detail_pic.setVisibility(View.VISIBLE);
-                    Glide.with(context) .load(result.result.pic).into(his_detail_pic);
+                    Glide.with(context) .load(result.result.get(0).pic).into(his_detail_pic);
                 }
             }
         };

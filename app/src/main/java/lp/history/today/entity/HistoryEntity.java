@@ -4,8 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 import commom.utils.LogUtil;
 import commom.utils.TimeUtils;
-import lp.history.base.BaseEntity;
-
 /**
  * error_code : 0
  * reason : 请求成功！
@@ -19,7 +17,7 @@ import lp.history.base.BaseEntity;
  * title : 哥伦布第一次远航
  * year : 1492
  */
-public class HistoryEntity extends BaseEntity {
+public class HistoryEntity  {
 
     public HistoryEntity() {
     }

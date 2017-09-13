@@ -3,15 +3,13 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import lp.history.base.BaseEntity;
 import lp.history.today.entity.HistoryEntity;
 import lp.history.present.Presenter;
 
 public class HistoryListPresenter implements Presenter{
     HistoryListAdapter historyListAdapter;
     @Override
-    public void initUI(View view, BaseEntity baseEntity) {
+    public void initUI(View view, Object baseEntity) {
          historyListAdapter = new HistoryListAdapter(view.getContext(), ((HistoryEntity) baseEntity).result);
         ((ListView)view).setAdapter(historyListAdapter);
         ((ListView)view).setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -28,7 +26,7 @@ public class HistoryListPresenter implements Presenter{
     }
 
     @Override
-    public void updateUI(View view, BaseEntity baseEntity) {
+    public void updateUI(View view, Object baseEntity) {
         historyListAdapter.addData( ((HistoryEntity) baseEntity).result);
     }
 }

@@ -1,4 +1,4 @@
-package lp.history.http.core;
+package commom.http.core;
 
 import android.content.Context;
 import com.android.volley.RequestQueue;
@@ -8,7 +8,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import commom.utils.LogUtil;
-import lp.history.base.BaseEntity;
 
 /**
  * Created by 刘攀

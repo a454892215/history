@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import lp.history.R;
-import lp.history.base.BaseEntity;
-import lp.history.http.HttpUtil;
-import lp.history.http.core.HttpCallback;
+
+import commom.http.HttpUtil;
+import commom.http.core.HttpCallback;
 import lp.history.today.entity.HistoryEntity;
 import lp.history.present.Presenter;
 import lp.history.widget.RefreshListView;
@@ -44,12 +44,12 @@ public class HistoryListFragment extends Fragment implements Presenter, HttpCall
     }
 
     @Override
-    public void initUI(View view, BaseEntity baseEntity) {
+    public void initUI(View view, Object baseEntity) {
         historyListPresent.initUI(view, baseEntity);
     }
 
     @Override
-    public void updateUI(View view, BaseEntity baseEntity) {
+    public void updateUI(View view, Object baseEntity) {
         historyListPresent.updateUI(view, baseEntity);
     }
 
