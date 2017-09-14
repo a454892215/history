@@ -30,7 +30,7 @@ public class MessagePushActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AppApplication.setMainActivity(this);
+        AppApplication.setMessagePushActivity(this);
         mLogView = (TextView) findViewById(R.id.log);
         // 设置别名
         findViewById(R.id.set_alias).setOnClickListener(new View.OnClickListener() {
@@ -215,7 +215,7 @@ public class MessagePushActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppApplication.setMainActivity(null);
+        AppApplication.setMessagePushActivity(null);
     }
 
     public void refreshLogInfo() {

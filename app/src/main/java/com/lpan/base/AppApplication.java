@@ -29,7 +29,7 @@ public class AppApplication extends Application {
 
     // 此TAG在adb logcat中检索自己所需要的信息， 只需在命令行终端输入 adb logcat | grep
     // com.xiaomi.mipushdemo
-    public static final String TAG = "lp.history";
+    public static final String TAG = "xiaomi_push";
 
     private static DemoHandler sHandler = null;
     private static MessagePushActivity messagePushActivity = null;
@@ -87,7 +87,7 @@ public class AppApplication extends Application {
         return sHandler;
     }
 
-    public static void setMainActivity(MessagePushActivity messagePushActivity_) {
+    public static void setMessagePushActivity(MessagePushActivity messagePushActivity_) {
         messagePushActivity = messagePushActivity_;
     }
 
@@ -106,7 +106,7 @@ public class AppApplication extends Application {
                 messagePushActivity.refreshLogInfo();
             }
             if (!TextUtils.isEmpty(s)) {
-                Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+            //    Toast.makeText(context, s, Toast.LENGTH_LONG).show();
             }
         }
     }
