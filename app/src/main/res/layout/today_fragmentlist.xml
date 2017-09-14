@@ -14,7 +14,7 @@
        android:textColor="@color/textColor"
        android:background="@color/head_color"/>
 
-   <lp.history.widget.RefreshListView
+   <com.lpan.widget.RefreshListView
        android:id="@+id/top_list"
        android:layout_width="match_parent"
        android:dividerHeight="0.7dp"

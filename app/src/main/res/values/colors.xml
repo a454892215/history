@@ -10,4 +10,6 @@
     <color name="textColor_small">#aa000000</color>
     <color name="checkedTextColor">#99ff0000</color>
     <color name="head_color">#11000000</color>
+    <color name="xiaomi_push_grey">#cccccc</color>
+    <color name="xiaomi_push_grey2">#FF767689</color>
 </resources>

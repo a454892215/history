@@ -5,4 +5,10 @@
     <dimen name="mine_head_size">96dp</dimen>
     <dimen name="main_footer_height">40dp</dimen>
     <dimen name="head_height">40dp</dimen>
+
+    <!--小米推送-->
+    <dimen name="set_padding">7dp</dimen>
+    <dimen name="text_btn_size">16sp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="margin_button">30dp</dimen>
 </resources>
