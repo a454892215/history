@@ -56,5 +56,6 @@
     <string name="unsubscribe_topic_fail"> Unsubscribe topic fail for %1$s.</string>
     <string name="set_accept_time_success"> Set accept time %1$s - %2$s success.</string>
     <string name="set_accept_time_fail"> Set accept time fail for %1$s.</string>
+    <string name="xiaomi_push">小米推送</string>
 
 </resources>

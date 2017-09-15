@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
-import com.lpan.message.XiaomiPushInitAssistant;
+import com.lpan.messagepush.XiaomiPushInitAssistant;
 
 
 import commom.utils.ToastUtil;

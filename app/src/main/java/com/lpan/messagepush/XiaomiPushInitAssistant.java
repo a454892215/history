@@ -1,4 +1,4 @@
-package com.lpan.message;
+package com.lpan.messagepush;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -13,8 +13,6 @@ import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 import java.util.List;
-
-import commom.utils.LogUtil;
 
 /**
  * Created by Administrator on 2017/9/15.
@@ -84,7 +82,6 @@ public class XiaomiPushInitAssistant {
             }
             if (!TextUtils.isEmpty(s)) {
                 //    Toast.makeText(context, s, Toast.LENGTH_LONG).show();
-                LogUtil.d("==============llpp==========小米重构代码测试");
             }
         }
     }

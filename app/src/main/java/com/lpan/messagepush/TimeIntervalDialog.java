@@ -1,4 +1,4 @@
-package com.lpan.message;
+package com.lpan.messagepush;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.lpan.message;
+package com.lpan.messagepush;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -6,15 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-
 import com.xiaomi.mipush.sdk.MiPushClient;
-
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-
-import com.lpan.base.AppApplication;
 import com.lpan.base.BaseActivity;
 
 import com.lpan.R;

@@ -36,11 +36,11 @@
         <activity android:name="base.BaseActivity" />
         <activity android:name=".today.HistoryDetailActivity" />
         <activity android:name=".top.WebActivity" android:launchMode="singleTop"/>
-        <activity android:name=".message.MessagePushActivity" android:launchMode="singleTop"/>
+        <activity android:name=".messagepush.MessagePushActivity" android:launchMode="singleTop"/>
 
         <!--小米推送的三个接收器 start-->
         <receiver
-            android:name=".message.DemoMessageReceiver"
+            android:name=".messagepush.DemoMessageReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />

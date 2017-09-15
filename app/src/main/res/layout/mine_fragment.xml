@@ -26,5 +26,5 @@
         android:id="@+id/mine_message_push"
         android:gravity="center"
         android:textSize="18sp"
-        android:text="设置"/>
+        android:text="@string/xiaomi_push"/>
 </LinearLayout>

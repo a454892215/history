@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import commom.utils.LogUtil;
 import com.lpan.R;
-import com.lpan.message.MessagePushActivity;
+import com.lpan.messagepush.MessagePushActivity;
 
 public class MineFragment extends Fragment {
     View view;
