@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import com.lpan.R;
-import com.lpan.base.AppApplication;
 
 /**
  * 1、PushMessageReceiver 是个抽象类，该类继承了 BroadcastReceiver。<br/>
@@ -59,7 +58,7 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 
     @Override
     public void onReceivePassThroughMessage(Context context, MiPushMessage message) {
-        Log.v(AppApplication.TAG,
+        Log.v(XiaomiPushInitAssistant.TAG,
                 "onReceivePassThroughMessage is called. " + message.toString());
         String log = context.getString(R.string.recv_passthrough_message, message.getContent());
         MessagePushActivity.logList.add(0, getSimpleDate() + " " + log);
@@ -72,12 +71,12 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 
         Message msg = Message.obtain();
         msg.obj = log;
-        AppApplication.getHandler().sendMessage(msg);
+        XiaomiPushInitAssistant.getHandler().sendMessage(msg);
     }
 
     @Override
     public void onNotificationMessageClicked(Context context, MiPushMessage message) {
-        Log.v(AppApplication.TAG,
+        Log.v(XiaomiPushInitAssistant.TAG,
                 "onNotificationMessageClicked is called. " + message.toString());
         String log = context.getString(R.string.click_notification_message, message.getContent());
         MessagePushActivity.logList.add(0, getSimpleDate() + " " + log);
@@ -92,12 +91,12 @@ public class DemoMessageReceiver extends PushMessageReceiver {
         if (message.isNotified()) {
             msg.obj = log;
         }
-        AppApplication.getHandler().sendMessage(msg);
+        XiaomiPushInitAssistant.getHandler().sendMessage(msg);
     }
 
     @Override
     public void onNotificationMessageArrived(Context context, MiPushMessage message) {
-        Log.v(AppApplication.TAG,
+        Log.v(XiaomiPushInitAssistant.TAG,
                 "onNotificationMessageArrived is called. " + message.toString());
         String log = context.getString(R.string.arrive_notification_message, message.getContent());
         MessagePushActivity.logList.add(0, getSimpleDate() + " " + log);
@@ -110,12 +109,12 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 
         Message msg = Message.obtain();
         msg.obj = log;
-        AppApplication.getHandler().sendMessage(msg);
+        XiaomiPushInitAssistant.getHandler().sendMessage(msg);
     }
 
     @Override
     public void onCommandResult(Context context, MiPushCommandMessage message) {
-        Log.v(AppApplication.TAG,
+        Log.v(XiaomiPushInitAssistant.TAG,
                 "onCommandResult is called. " + message.toString());
         String command = message.getCommand();
         List<String> arguments = message.getCommandArguments();
@@ -186,12 +185,12 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 
         Message msg = Message.obtain();
         msg.obj = log;
-        AppApplication.getHandler().sendMessage(msg);
+        XiaomiPushInitAssistant.getHandler().sendMessage(msg);
     }
 
     @Override
     public void onReceiveRegisterResult(Context context, MiPushCommandMessage message) {
-        Log.v(AppApplication.TAG,
+        Log.v(XiaomiPushInitAssistant.TAG,
                 "onReceiveRegisterResult is called. " + message.toString());
         String command = message.getCommand();
         List<String> arguments = message.getCommandArguments();
@@ -210,7 +209,7 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 
         Message msg = Message.obtain();
         msg.obj = log;
-        AppApplication.getHandler().sendMessage(msg);
+        XiaomiPushInitAssistant.getHandler().sendMessage(msg);
     }
 
     @SuppressLint("SimpleDateFormat")
