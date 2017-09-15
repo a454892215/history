@@ -27,4 +27,11 @@
         android:gravity="center"
         android:textSize="18sp"
         android:text="@string/xiaomi_push"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mine_qr_scanner"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="@string/qr_scan"/>
 </LinearLayout>

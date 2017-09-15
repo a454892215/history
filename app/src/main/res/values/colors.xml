@@ -12,4 +12,12 @@
     <color name="head_color">#11000000</color>
     <color name="xiaomi_push_grey">#cccccc</color>
     <color name="xiaomi_push_grey2">#FF767689</color>
+
+    <!--二维码扫描-->
+    <color name="qr_code_white">#FFFFFFFF</color>
+    <color name="qr_code_flashlight_bg">#66000000</color>
+    <color name="qr_code_finder_mask">#80000000</color>
+    <color name="qr_code_flash_light_text_color">#66FFFFFF</color>
+    <color name="qr_code_finder_frame">#FFFFFFFF</color>
+    <color name="qr_code_finder_laser">#ef8394</color>
 </resources>

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import commom.utils.LogUtil;
 import com.lpan.R;
 import com.lpan.messagepush.MessagePushActivity;
+import com.lpan.qrcodescanner.qrcode.QrCodeActivity;
 
 public class MineFragment extends Fragment {
     View view;
@@ -18,16 +19,21 @@ public class MineFragment extends Fragment {
                              Bundle savedInstanceState) {
         if(view==null){
             view = inflater.inflate(R.layout.mine_fragment, container, false);
-            ImageView mine_img_head = (ImageView) view.findViewById(R.id.mine_img_head);
             View mine_message_push = view.findViewById(R.id.mine_message_push);
-
+            View  mine_qr_scanner =  view.findViewById(R.id.mine_qr_scanner);
             mine_message_push.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(getContext(),MessagePushActivity.class));
                 }
             });
-            LogUtil.i("========onCreateView===========view:"+view);
+            mine_qr_scanner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(),QrCodeActivity.class));
+                }
+            });
+
 
 
 /*            Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.react); //获取Bitmap图片

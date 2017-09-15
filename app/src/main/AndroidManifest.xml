@@ -11,6 +11,15 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false"/>
+
     <!-- the following 2 com.xiaomi.mipushdemo should be changed to your package name -->
     <permission
         android:name="com.lpan.permission.MIPUSH_RECEIVE"
@@ -38,6 +47,7 @@
         <activity android:name=".top.WebActivity" android:launchMode="singleTop"/>
         <activity android:name=".messagepush.MessagePushActivity" android:launchMode="singleTop"/>
 
+        <activity android:name="com.lpan.qrcodescanner.qrcode.QrCodeActivity" android:launchMode="singleTop"/>
         <!--小米推送的三个接收器 start-->
         <receiver
             android:name=".messagepush.DemoMessageReceiver"
