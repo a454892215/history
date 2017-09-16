@@ -1,4 +1,4 @@
-package com.lpan.today;
+package com.lpan.histoday;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,11 +8,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
-import commom.utils.LogUtil;
+
 import commom.utils.ViewHolder;
 import com.lpan.base.MyBaseAdapter;
 import com.lpan.R;
-import com.lpan.today.entity.HistoryEntity;
+import com.lpan.histoday.entity.HistoryEntity;
 
 
 

@@ -1,4 +1,4 @@
-package com.lpan.top;
+package com.lpan.topnew;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import java.util.List;
-import commom.utils.LogUtil;
+
 import commom.utils.ViewHolder;
 import com.lpan.R;
 import com.lpan.base.MyBaseAdapter;

@@ -3,7 +3,7 @@ package com.lpan.qrcodescanner.qrcode.utils;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-import com.lpan.base.AppApplication;
+import com.lpan.AppApplication;
 
 /**
  * ScreenUtils

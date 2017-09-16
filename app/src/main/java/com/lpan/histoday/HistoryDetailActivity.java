@@ -1,4 +1,4 @@
-package com.lpan.today;
+package com.lpan.histoday;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,7 +11,7 @@ import com.lpan.R;
 import commom.http.core.HttpCallback;
 import commom.http.HttpUtil;
 import commom.http.core.HttpCallbackAdapter;
-import com.lpan.today.entity.HistoryDetailEntity;
+import com.lpan.histoday.entity.HistoryDetailEntity;
 
 
 public class HistoryDetailActivity extends BaseActivity {

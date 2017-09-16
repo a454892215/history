@@ -1,4 +1,4 @@
-package com.lpan.today;
+package com.lpan.histoday;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,7 @@ import com.lpan.R;
 
 import commom.http.HttpUtil;
 import commom.http.core.HttpCallback;
-import com.lpan.today.entity.HistoryEntity;
+import com.lpan.histoday.entity.HistoryEntity;
 import com.lpan.present.Presenter;
 import com.lpan.widget.RefreshListView;
 

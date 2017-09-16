@@ -4,8 +4,8 @@ import android.widget.RadioGroup;
 
 import com.lpan.base.BaseActivity;
 import com.lpan.mine.MineFragment;
-import com.lpan.today.HistoryListFragment;
-import com.lpan.top.TopNewsFragment;
+import com.lpan.histoday.HistoryListFragment;
+import com.lpan.topnew.TopNewsFragment;
 
 public class MainActivity extends BaseActivity {
     private MineFragment mineFragment;

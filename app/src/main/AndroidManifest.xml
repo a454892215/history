@@ -29,7 +29,7 @@
 
 
     <application
-        android:name=".base.AppApplication"
+        android:name=".AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -43,8 +43,8 @@
             </intent-filter>
         </activity>
         <activity android:name="base.BaseActivity" />
-        <activity android:name=".today.HistoryDetailActivity" />
-        <activity android:name=".top.WebActivity" android:launchMode="singleTop"/>
+        <activity android:name=".histoday.HistoryDetailActivity" />
+        <activity android:name=".topnew.WebActivity" android:launchMode="singleTop"/>
         <activity android:name=".messagepush.MessagePushActivity" android:launchMode="singleTop"/>
 
         <activity android:name="com.lpan.qrcodescanner.qrcode.QrCodeActivity" android:launchMode="singleTop"/>

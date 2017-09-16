@@ -1,4 +1,4 @@
-package com.lpan.today.entity;
+package com.lpan.histoday.entity;
 
 import java.util.List;
 

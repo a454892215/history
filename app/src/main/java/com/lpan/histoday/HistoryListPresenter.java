@@ -1,9 +1,9 @@
-package com.lpan.today;
+package com.lpan.histoday;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.lpan.today.entity.HistoryEntity;
+import com.lpan.histoday.entity.HistoryEntity;
 import com.lpan.present.Presenter;
 
 public class HistoryListPresenter implements Presenter{

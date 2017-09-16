@@ -1,4 +1,4 @@
-package com.lpan.base;
+package com.lpan;
 
 import android.app.Application;
 import android.content.Context;
