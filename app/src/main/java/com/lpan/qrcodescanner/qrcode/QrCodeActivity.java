@@ -3,7 +3,9 @@ package com.lpan.qrcodescanner.qrcode;
 import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -277,13 +279,24 @@ public class QrCodeActivity extends Activity implements Callback, OnClickListene
                 }
             });
         } else {
-            mDecodeManager.showResultDialog(this, resultString, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                    restartPreview();
-                }
-            });
+
+            try {
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                Uri  uri= Uri.parse(resultString);
+                intent.setData(uri);
+                startActivity(intent);
+                finish();
+            } catch (Exception e) {
+                mDecodeManager.showResultDialog(this, resultString, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        restartPreview();
+                    }
+                });
+            }
+
         }
     }
 }

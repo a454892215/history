@@ -28,6 +28,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:padding="10dp"
+            android:visibility="gone"
             android:text="@string/qr_code_select_picture"
             android:textColor="@android:color/white"
             android:textSize="15sp"
