@@ -14,7 +14,7 @@ import com.lpan.today.entity.HistoryEntity;
 import com.lpan.present.Presenter;
 import com.lpan.widget.RefreshListView;
 
-public class HistoryListFragment extends Fragment implements Presenter, HttpCallback<HistoryEntity>, RefreshListView.RefreshingCallback {
+public class HistoryListFragment extends Fragment implements HttpCallback<HistoryEntity>, RefreshListView.RefreshingCallback {
     private RefreshListView history_list;
 
     Presenter historyListPresent = new HistoryListPresenter();
@@ -43,12 +43,12 @@ public class HistoryListFragment extends Fragment implements Presenter, HttpCall
         HttpUtil.get(HistoryEntity.getUrl(false), this, HistoryEntity.class, getActivity(), false);
     }
 
-    @Override
+
     public void initUI(View view, Object baseEntity) {
         historyListPresent.initUI(view, baseEntity);
     }
 
-    @Override
+
     public void updateUI(View view, Object baseEntity) {
         historyListPresent.updateUI(view, baseEntity);
     }
