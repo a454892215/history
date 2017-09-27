@@ -10,6 +10,8 @@ import com.lpan.R;
 
 import commom.http.HttpUtil;
 import commom.http.core.HttpCallback;
+import commom.utils.ToastUtil;
+
 import com.lpan.histoday.entity.HistoryEntity;
 import com.lpan.present.Presenter;
 import com.lpan.widget.RefreshListView;
@@ -54,8 +56,17 @@ public class HistoryListFragment extends Fragment implements HttpCallback<Histor
     }
 
     @Override
-    public void onSuccess(HistoryEntity result) {
-        initUI(history_list, result);
+    public void onSuccess(HistoryEntity historyEntity) {
+        if(historyEntity.result==null){
+            ToastUtil.makeLong("没有数据");
+            return;
+        }
+        initUI(history_list, historyEntity);
+    }
+
+    @Override
+    public void onFailed() {
+        ToastUtil.makeShort("加载数据失败");
     }
 
     @Override

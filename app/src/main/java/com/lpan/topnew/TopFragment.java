@@ -14,13 +14,14 @@ import commom.utils.LogUtil;
 import com.lpan.R;
 import commom.http.HttpUtil;
 import commom.http.core.HttpCallback;
+import commom.utils.ToastUtil;
+
 import com.lpan.widget.RefreshListView;
 
 /**
  * Created by 刘攀
  */
 public class TopFragment extends Fragment implements HttpCallback<TopEntity>, RefreshListView.RefreshingCallback {
-
     protected static TopFragment getInstance(NewsType newsType) {
         TopFragment baseFragment = new TopFragment();
         baseFragment.setNewsType(newsType);
@@ -49,7 +50,6 @@ public class TopFragment extends Fragment implements HttpCallback<TopEntity>, Re
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LogUtil.i("==========onViewCreated=============:");
         if (refreshListView == null) {
             initView(view);
             loadData();
@@ -81,13 +81,36 @@ public class TopFragment extends Fragment implements HttpCallback<TopEntity>, Re
     }
 
     private void loadData() {
-        HttpUtil.get(TopEntity.getUrl(newsType), this, TopEntity.class, getActivity(), false);
+    //    String url = TopEntity.getUrl(newsType);
+       // String sp_date = SharedPreferencesUtils.get(getContext(), url);
+     //   String date = TimeUtils.getFormedDate().substring(0, 11);
+     //    if(sp_date.equals(date)){
+     //        DiskCacheHelper.readJsonFromDisk(TopEntity.getUrl(newsType).replace(".","_").replace("/","_"),getContext());
+     //    }else{
+             HttpUtil.get(TopEntity.getUrl(newsType), this, TopEntity.class, getActivity(), false);
+   //     }
+
     }
 
     //   protected abstract void loadData();
     @Override
-    public void onSuccess(TopEntity result) {
-        initUI(result);
+    public void onSuccess(TopEntity topEntity) {
+        if(topEntity.result==null){
+            ToastUtil.makeShort("没有数据");
+            return;
+        }
+
+       // SharedPreferencesUtils.put(getContext(),topEntity.getUrl(newsType),topEntity.result.data.get(0).date);
+       // DiskCacheHelper.writeJsonToDisk(topEntity.getUrl(newsType).replace(".","_").replace("/","_"),"",getContext());
+        swipeRefreshLayout.setRefreshing(false);
+        initUI(topEntity);
+
+    }
+
+    @Override
+    public void onFailed() {
+        ToastUtil.makeShort("加载数据失败");
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     TopAdapter topAdapter;
@@ -98,13 +121,12 @@ public class TopFragment extends Fragment implements HttpCallback<TopEntity>, Re
             refreshListView.setAdapter(topAdapter);
         }else{
             topAdapter.setData( result.result.data);
-            swipeRefreshLayout.setRefreshing(false);
         }
     }
 
     @Override
     public void onLoadMoreSuccess(TopEntity result) {
-        topAdapter.addData(result.result.data);
+      //  topAdapter.addData(result.result.data);
     }
 
     @Override

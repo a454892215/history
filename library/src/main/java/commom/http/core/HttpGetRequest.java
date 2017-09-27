@@ -6,17 +6,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import commom.utils.LogUtil;
 
 /**
- * Created by 刘攀
+ * Created by LiuPan
  */
 public class HttpGetRequest {
-    public static  <T> void  get(final String url, final HttpCallback callback, Context context, final Class<T> entityType, final boolean isLoadMore) {
-        LogUtil.i("request url is " + url);
-        RequestQueue mQueue = Volley.newRequestQueue(context);
-        StringRequest stringRequest = new StringRequest(url,
+    public static  <T> void  get(final String url, final HttpCallback callback, final Context context,
+                                 final Class<T> entityType, final boolean isLoadMore) {
+        final RequestQueue mQueue = Volley.newRequestQueue(context);
+        final StringRequest stringRequest = new StringRequest(url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -34,6 +33,7 @@ public class HttpGetRequest {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                callback.onFailed();
                 LogUtil.e("onErrorResponse:" + error.getMessage());
             }
         });

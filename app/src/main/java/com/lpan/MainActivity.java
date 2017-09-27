@@ -7,6 +7,8 @@ import com.lpan.mine.MineFragment;
 import com.lpan.histoday.HistoryListFragment;
 import com.lpan.topnew.TopNewsFragment;
 
+import commom.cache.DiskCacheHelper;
+
 public class MainActivity extends BaseActivity {
     private MineFragment mineFragment;
     private TopNewsFragment topNewsFragment;
