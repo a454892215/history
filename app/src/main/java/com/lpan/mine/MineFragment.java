@@ -21,6 +21,7 @@ public class MineFragment extends Fragment {
             view = inflater.inflate(R.layout.mine_fragment, container, false);
             View mine_message_push = view.findViewById(R.id.mine_message_push);
             View  mine_qr_scanner =  view.findViewById(R.id.mine_qr_scanner);
+            View  browser =  view.findViewById(R.id.mine_browser);
             mine_message_push.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -28,6 +29,12 @@ public class MineFragment extends Fragment {
                 }
             });
             mine_qr_scanner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(),QrCodeActivity.class));
+                }
+            });
+            browser.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(getContext(),QrCodeActivity.class));

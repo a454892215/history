@@ -9,6 +9,7 @@ import com.lpan.messagepush.XiaomiPushInitAssistant;
 
 
 import commom.utils.ToastUtil;
+import io.realm.Realm;
 
 
 public class AppApplication extends Application {
@@ -19,6 +20,7 @@ public class AppApplication extends Application {
         super.onCreate();
         appApplication = getApplicationContext();
         ToastUtil.init(this);
+        Realm.init(this);
         new GlideBuilder(this)
                 .setDiskCache(new InternalCacheDiskCacheFactory(this, 1024 * 1024 * 10));
         XiaomiPushInitAssistant.initXiaomiPush(getApplicationContext());
