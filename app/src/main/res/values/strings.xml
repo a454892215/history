@@ -23,8 +23,7 @@
     <string name="device_des">正常使用MDM产品，请点击激活。</string>
 
 
-
-   <!--  小米推送-->
+    <!--  小米推送-->
     <string name="ok">确认</string>
     <string name="set_alias">设置别名</string>
     <string name="unset_alias">撤销别名</string>

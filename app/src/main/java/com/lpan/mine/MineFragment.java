@@ -5,9 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import commom.utils.LogUtil;
 import com.lpan.R;
 import com.lpan.messagepush.MessagePushActivity;
 import com.lpan.qrcodescanner.qrcode.QrCodeActivity;
@@ -37,7 +34,7 @@ public class MineFragment extends Fragment {
             browser.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getContext(),QrCodeActivity.class));
+                    startActivity(new Intent(getContext(),BrowserActivity.class));
                 }
             });
 
