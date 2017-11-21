@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.lpan.R;
 import com.lpan.messagepush.MessagePushActivity;
+import com.lpan.mine.databinding.DataBindingDemoActivity;
 import com.lpan.qrcodescanner.qrcode.QrCodeActivity;
 
 public class MineFragment extends Fragment {
@@ -19,6 +20,8 @@ public class MineFragment extends Fragment {
             View mine_message_push = view.findViewById(R.id.mine_message_push);
             View  mine_qr_scanner =  view.findViewById(R.id.mine_qr_scanner);
             View  browser =  view.findViewById(R.id.mine_browser);
+            View  mine_data_binding =  view.findViewById(R.id.mine_data_binding);
+
             mine_message_push.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -35,6 +38,12 @@ public class MineFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(getContext(),BrowserActivity.class));
+                }
+            });
+            mine_data_binding.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(),DataBindingDemoActivity.class));
                 }
             });
 

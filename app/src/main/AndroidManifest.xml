@@ -52,6 +52,8 @@
         <activity
             android:name=".qrcodescanner.qrcode.QrCodeActivity"
             android:launchMode="singleTop" />
+        <activity android:name=".mine.BrowserActivity" />
+        <activity android:name=".mine.databinding.DataBindingDemoActivity" />
         <!-- 小米推送的三个接收器 start -->
         <receiver
             android:name=".messagepush.DemoMessageReceiver"
@@ -105,8 +107,6 @@
             android:name="com.xiaomi.mipush.sdk.MessageHandleService"
             android:enabled="true" />
         <!-- 小米推送的四个服务 end -->
-        <activity android:name=".mine.BrowserActivity" />
-        <activity android:name=".mine.Main2Activity"></activity>
     </application>
 
 </manifest>

@@ -57,8 +57,8 @@
     <string name="set_accept_time_fail"> Set accept time fail for %1$s.</string>
     <string name="xiaomi_push">小米推送</string>
     <string name="qr_scan">扫一扫</string>
-    <string name="browser">浏览器</string>
-
+    <string name="browser">浏览器</string>data_binding
+    <string name="data_binding">MVVC之data_binding</string>
     <!--二维码扫描-->
     <string name="title_activity_scan_qr_code">扫一扫</string>
     <string name="qc_code_close">关闭</string>

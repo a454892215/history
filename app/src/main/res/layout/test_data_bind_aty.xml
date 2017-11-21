@@ -1,0 +1,63 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="dog"
+            type="com.lpan.mine.databinding.Dog"/>
+
+        <variable
+            name="presenter"
+            type="com.lpan.mine.databinding.DataBindingDemoActivity.Presenter"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+       <TextView
+            android:id="@+id/first_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="data_binding1  "/>
+
+        <TextView
+            android:id="@+id/second_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="data_binding2  "/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{presenter.onClick}"
+            android:text="按钮1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.onClickGetData(dog)}"
+            android:text="按钮2"/>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:orientation="horizontal">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="请重新输入狗狗的名字："/>
+             <EditText
+                 android:layout_width="match_parent"
+                 android:onTextChanged="@{presenter.onTextChanged}"
+                 android:layout_height="50dp"
+                 android:textSize="12sp"/>
+         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{dog.name}"/>
+<!--        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{dog.age}"/>-->
+    </LinearLayout>
+</layout>
