@@ -59,6 +59,9 @@
     <string name="qr_scan">扫一扫</string>
     <string name="browser">浏览器</string>data_binding
     <string name="data_binding">MVVC之data_binding</string>
+    <string name="function_list">功能列表</string>
+    <string name="undetermined">待定</string>
+
     <!--二维码扫描-->
     <string name="title_activity_scan_qr_code">扫一扫</string>
     <string name="qc_code_close">关闭</string>
@@ -73,5 +76,6 @@
     <string name="qr_code_could_not_read_qr_code_from_picture">没有读出图片中的链接，换张图片试试吧~</string>
     <string name="qr_code_could_not_read_qr_code_from_scanner">对不起，无法打开扫出的内容</string>
     <string name="qr_code_camera_not_found">未检测到相机</string>
+
 
 </resources>
