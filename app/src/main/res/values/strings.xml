@@ -60,6 +60,7 @@
     <string name="browser">浏览器</string>data_binding
     <string name="data_binding">MVVC之data_binding</string>
     <string name="function_list">功能列表</string>
+    <string name="jni_test">jni测试</string>
     <string name="undetermined">待定</string>
 
     <!--二维码扫描-->

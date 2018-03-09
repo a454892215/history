@@ -107,6 +107,7 @@
             android:name="com.xiaomi.mipush.sdk.MessageHandleService"
             android:enabled="true" />
         <!-- 小米推送的四个服务 end -->
+        <activity android:name=".mine.JniTestActivity"></activity>
     </application>
 
 </manifest>

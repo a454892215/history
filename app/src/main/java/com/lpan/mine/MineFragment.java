@@ -22,13 +22,13 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             View  mine_qr_scanner =  view.findViewById(R.id.mine_qr_scanner);
             View  browser =  view.findViewById(R.id.mine_browser);
             View  mine_data_binding =  view.findViewById(R.id.mine_data_binding);
-            View  mine_data_encrypted_currency =  view.findViewById(R.id.mine_data_currency);
+            View  mine_jni_test =  view.findViewById(R.id.mine_jni_test);
 
             mine_message_push.setOnClickListener(this);
             mine_qr_scanner.setOnClickListener(this);
             browser.setOnClickListener(this);
             mine_data_binding.setOnClickListener(this);
-            mine_data_encrypted_currency.setOnClickListener(this);
+            mine_jni_test.setOnClickListener(this);
         }
         return view;
     }
@@ -49,8 +49,8 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             case R.id.mine_data_binding:
                 startActivity(new Intent(getContext(),DataBindingDemoActivity.class));
                 break;
-            case R.id.mine_data_currency:
-              //  startActivity(new Intent(getContext(),DataCurrencyMonitorActivity.class));
+            case R.id.mine_jni_test:
+               startActivity(new Intent(getContext(),JniTestActivity.class));
                 break;
         }
     }
