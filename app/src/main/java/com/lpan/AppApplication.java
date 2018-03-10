@@ -2,9 +2,6 @@ package com.lpan;
 
 import android.app.Application;
 import android.content.Context;
-
-import com.bumptech.glide.GlideBuilder;
-import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.lpan.messagepush.XiaomiPushInitAssistant;
 
 
@@ -21,8 +18,9 @@ public class AppApplication extends Application {
         appApplication = getApplicationContext();
         ToastUtil.init(this);
         Realm.init(this);
-        new GlideBuilder(this)
-                .setDiskCache(new InternalCacheDiskCacheFactory(this, 1024 * 1024 * 10));
+       // new GlideBuilder(this)
+       //         .setDiskCache(new InternalCacheDiskCacheFactory(this, 1024 * 1024 * 10));
+
         XiaomiPushInitAssistant.initXiaomiPush(getApplicationContext());
     }
 }
