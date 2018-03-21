@@ -15,6 +15,46 @@ extern "C" {
 JNIEXPORT jstring JNICALL Java_com_lpan_mine_jnitest_HelloJni_test
   (JNIEnv *, jclass);
 
+/*
+ * Class:     com_lpan_mine_jnitest_HelloJni
+ * Method:    testObjMethod
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_lpan_mine_jnitest_HelloJni_testObjMethod
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_lpan_mine_jnitest_HelloJni
+ * Method:    testIntParams
+ * Signature: (II)I
+ */
+JNIEXPORT jint JNICALL Java_com_lpan_mine_jnitest_HelloJni_testIntParams
+  (JNIEnv *, jclass, jint, jint);
+
+/*
+ * Class:     com_lpan_mine_jnitest_HelloJni
+ * Method:    testIntArrParams
+ * Signature: ([I)[I
+ */
+JNIEXPORT jintArray JNICALL Java_com_lpan_mine_jnitest_HelloJni_testIntArrParams
+  (JNIEnv *, jobject, jintArray);
+
+/*
+ * Class:     com_lpan_mine_jnitest_HelloJni
+ * Method:    testStringParams
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_lpan_mine_jnitest_HelloJni_testStringParams
+  (JNIEnv *, jclass, jstring);
+
+/*
+ * Class:     com_lpan_mine_jnitest_HelloJni
+ * Method:    testCInvokeJava
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_com_lpan_mine_jnitest_HelloJni_testCInvokeJava
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
