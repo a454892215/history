@@ -44,13 +44,14 @@ JNIEXPORT jintArray JNICALL Java_com_lpan_mine_jnitest_HelloJni_testIntArrParams
         (JNIEnv *env, jobject obj, jintArray jArray){
     jsize length =(*env)->GetArrayLength(env,jArray);
     LOGD("length = %d",length);
-    int* arr_pointer =(*env)->GetIntArrayElements(env,jArray,JNI_FALSE);//把jintArray转换成数组指针
+    jint* arr_pointer =(*env)->GetIntArrayElements(env,jArray,JNI_FALSE);//把jintArray转换成数组指针
     int i;
     for(i = 0;i<length;i++){
         *(arr_pointer+i) += 10;
         LOGD("数字是 = %d", *(arr_pointer+i));
     }
     (*env)->SetIntArrayRegion(env, jArray, 0, length, arr_pointer);//设置jArray，第三个参数表示起始位置
+    (*env)->ReleaseIntArrayElements(env, jArray, arr_pointer, 0);//??
     return jArray;
 }
 
@@ -67,7 +68,7 @@ char *_JString2CStr(JNIEnv *env, jstring jstr) {
     jsize alen = (*env)->GetArrayLength(env, barr);
     jbyte *ba = (*env)->GetByteArrayElements(env, barr, JNI_FALSE);
     if (alen > 0) {
-        rtn = (char *) malloc(alen + 1); //"\0"
+        rtn = (char *) malloc(alen + 1); //"\0" 这里内存要释放？
         memcpy(rtn, ba, alen);
         rtn[alen] = 0;
     }
